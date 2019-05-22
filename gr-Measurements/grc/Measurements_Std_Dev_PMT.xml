@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<block>
+  <name>Std_Dev_PMT</name>
+  <key>Measurements_Std_Dev_PMT</key>
+  <category>[Measurements]</category>
+  <import>import Measurements</import>
+  <make>Measurements.Std_Dev_PMT()</make>
+
+
+  <sink>
+    <name>in</name>
+    <type>message</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>message</type>
+  </source>
+  <doc>
+    Descripción:
+ Toma el vector de entrada y le calcula la Std Dev a los valores del vector, la cantidad de muestras la determina el bloque "Stream To Tagged Stream.  Source --> Stream To Tagged Stream --> Tagged Stream To PDU.
+  </doc>
+</block>

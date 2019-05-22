@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<block>
+  <name>Amp_Dist_Zero_py_cf</name>
+  <key>Measurements_Amp_Dist_Zero_py_cf</key>
+  <category>[Measurements]</category>
+  <import>import Measurements</import>
+  <make>Measurements.Amp_Dist_Zero_py_cf()</make>
+
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+	<doc>
+    Description:
+This block calculates de modulus of a complex number at the input.
+  	</doc>
+</block>

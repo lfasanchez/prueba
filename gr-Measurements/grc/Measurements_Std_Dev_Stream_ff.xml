@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<block>
+  <name>Std_Dev_Stream_ff</name>
+  <key>Measurements_Std_Dev_Stream_ff</key>
+  <category>[Measurements]</category>
+  <import>import Measurements</import>
+  <make>Measurements.Std_Dev_Stream_ff($Size)</make>
+  <callback>set_Size ($Size)</callback>
+
+    <param>
+        <name>Size</name>
+        <key>Size</key>
+        <value>1000</value>
+        <type>float</type>
+    </param>
+
+	<sink>
+	<name>in</name>
+        <type>float</type>
+        <vlen>1</vlen>
+	</sink>
+
+	<source>
+        <name>out</name>
+	<type>float</type>
+        <vlen>1</vlen>
+	</source>
+
+    <doc>
+This block estimates de Std Dev of stream of numbers, with the size defined.
+
+</doc>
+</block>

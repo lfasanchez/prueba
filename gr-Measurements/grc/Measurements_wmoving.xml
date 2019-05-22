@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<block>
+  <name>Weighted Moving Averag</name>
+  <key>Measurements_wmoving</key>
+  <category>[Measurements]</category>
+  <import>import Measurements</import>
+  <make>Measurements.wmoving( $type=#echo ($alpha,$samples)[int($type.i)]# )</make>
+  <callback>set_$type (#echo ($alpha,$samples)[int($type.i)]# )</callback>
+
+
+   <param>
+		<name>Weight Type</name>
+		<key>type</key>
+        <value>alpha</value>
+		<type>enum</type>
+		<option>
+			<name>Alpha</name>
+			<key>alpha</key>
+            <opt>a:none</opt>
+            <opt>s:all</opt>
+            <opt>i:0</opt>
+        </option>
+        <option>
+			<name>Samples</name>
+			<key>samples</key>
+            <opt>a:all</opt>
+            <opt>s:none</opt>
+            <opt>i:1</opt>
+		</option>
+    </param>
+
+    <param>
+        <name>Alpha</name>
+        <key>alpha</key>
+        <value>0.5</value>
+        <type>float</type>
+        <hide>$type.a</hide>
+    </param>
+
+    <param>
+        <name>Samples</name>
+        <key>samples</key>
+        <value>1000</value>
+        <type>int</type>
+        <hide>$type.s</hide>
+    </param>
+
+	<sink>
+		<name>in</name>
+        <type>float</type>
+        <vlen>1</vlen>
+	</sink>
+
+	<source>
+        <name>out</name>
+		<type>float</type>
+        <vlen>1</vlen>
+	</source>
+
+    <doc>
+ An alternate moving average (from the GNURadio core Moving Average) implemented as a weighted moving average.  \
+ Always O(n), this average is computed as avg = α·item + (β=(1-α))·avg.
+
+Args:
+    Weight-Type=Alpha Mode:
+        Alpha: The weight of new stuff vs old stuff
+
+    Weight-Type=Alpha Mode:
+        Samples: The number of samples in the moving average, kindof anyway.
+
+        Really, this is still avg = α·item + β·avg, but α is computed from
+        the number of samples.  It loosely approximates a simple moving
+        average of the same size by computing α as:
+
+            α = 2 / (1+samples)
+            β = (1-α)
+
+</doc>
+</block>
